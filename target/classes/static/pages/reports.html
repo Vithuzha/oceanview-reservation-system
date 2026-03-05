@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports | Ocean View Resort</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body data-page="reports">
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <span class="icon">🏖️</span>
+                <h2>Ocean View Resort</h2>
+                <p>Reservation System</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/pages/dashboard.html" class="nav-item" data-page="dashboard"><span class="nav-icon">📊</span>
+                    Dashboard</a>
+                <a href="/pages/add-reservation.html" class="nav-item" data-page="add-reservation"><span
+                        class="nav-icon">➕</span> Add Reservation</a>
+                <a href="/pages/view-reservation.html" class="nav-item" data-page="view-reservation"><span
+                        class="nav-icon">🔍</span> View Reservations</a>
+                <a href="/pages/billing.html" class="nav-item" data-page="billing"><span class="nav-icon">💰</span>
+                    Calculate Bill</a>
+                <a href="/pages/reports.html" class="nav-item" data-page="reports"><span class="nav-icon">📈</span>
+                    Reports</a>
+                <a href="/pages/help.html" class="nav-item" data-page="help"><span class="nav-icon">❓</span> Help</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">S</div>
+                    <div class="user-details">
+                        <div class="name" id="userName">Staff</div>
+                        <div class="role" id="userRole">STAFF</div>
+                    </div>
+                </div>
+                <a class="nav-item" onclick="logout()" style="cursor:pointer;"><span class="nav-icon">🚪</span>
+                    Logout</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Reports</h1>
+                <p>Occupancy statistics and revenue summaries</p>
+            </div>
+
+            <!-- Occupancy Report -->
+            <div class="card" style="margin-bottom:24px;">
+                <div class="card-title">🏨 Room Occupancy Report</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue">🏠</div>
+                        <div class="stat-info">
+                            <h3 id="rptTotalRooms">0</h3>
+                            <p>Total Rooms</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green">🔒</div>
+                        <div class="stat-info">
+                            <h3 id="rptOccupied">0</h3>
+                            <p>Occupied</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon yellow">🔓</div>
+                        <div class="stat-info">
+                            <h3 id="rptAvailable">0</h3>
+                            <p>Available</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple">📊</div>
+                        <div class="stat-info">
+                            <h3 id="rptOccupancyRate">0%</h3>
+                            <p>Occupancy Rate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reservation Statistics -->
+            <div class="card" style="margin-bottom:24px;">
+                <div class="card-title">📋 Reservation Statistics</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Total Reservations</td>
+                                <td><strong id="rptTotal">0</strong></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-confirmed">CONFIRMED</span></td>
+                                <td id="rptConfirmed">0</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-pending">PENDING</span></td>
+                                <td id="rptPending">0</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-checked-in">CHECKED IN</span></td>
+                                <td id="rptCheckedIn">0</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-checked-out">CHECKED OUT</span></td>
+                                <td id="rptCheckedOut">0</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-cancelled">CANCELLED</span></td>
+                                <td id="rptCancelled">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Revenue Report -->
+            <div class="card">
+                <div class="card-title">💰 Revenue Report</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon green">💵</div>
+                        <div class="stat-info">
+                            <h3 id="rptRevenue" style="font-size:18px;">LKR 0.00</h3>
+                            <p>Total Revenue</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon yellow">🏛️</div>
+                        <div class="stat-info">
+                            <h3 id="rptTax" style="font-size:18px;">LKR 0.00</h3>
+                            <p>Tax Collected (15%)</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue">📄</div>
+                        <div class="stat-info">
+                            <h3 id="rptBills">0</h3>
+                            <p>Bills Generated</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon purple">📊</div>
+                        <div class="stat-info">
+                            <h3 id="rptAvgBill" style="font-size:18px;">LKR 0.00</h3>
+                            <p>Average Bill</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help | Ocean View Resort</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body data-page="help">
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <span class="icon">🏖️</span>
+                <h2>Ocean View Resort</h2>
+                <p>Reservation System</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/pages/dashboard.html" class="nav-item" data-page="dashboard"><span class="nav-icon">📊</span>
+                    Dashboard</a>
+                <a href="/pages/add-reservation.html" class="nav-item" data-page="add-reservation"><span
+                        class="nav-icon">➕</span> Add Reservation</a>
+                <a href="/pages/view-reservation.html" class="nav-item" data-page="view-reservation"><span
+                        class="nav-icon">🔍</span> View Reservations</a>
+                <a href="/pages/billing.html" class="nav-item" data-page="billing"><span class="nav-icon">💰</span>
+                    Calculate Bill</a>
+                <a href="/pages/reports.html" class="nav-item" data-page="reports"><span class="nav-icon">📈</span>
+                    Reports</a>
+                <a href="/pages/help.html" class="nav-item" data-page="help"><span class="nav-icon">❓</span> Help</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">S</div>
+                    <div class="user-details">
+                        <div class="name" id="userName">Staff</div>
+                        <div class="role" id="userRole">STAFF</div>
+                    </div>
+                </div>
+                <a class="nav-item" onclick="logout()" style="cursor:pointer;"><span class="nav-icon">🚪</span>
+                    Logout</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Help & Guidelines</h1>
+                <p>System usage guide for new staff members</p>
+            </div>
+
+            <!-- Getting Started -->
+            <div class="card help-section" style="margin-bottom:24px;">
+                <div class="card-title">🚀 Getting Started</div>
+                <div class="help-step">
+                    <span class="step-num">01</span>
+                    <div class="step-text">
+                        <h4>Login to the System</h4>
+                        <p>Use your assigned username and password to access the system. Contact your manager if you
+                            don't have login credentials. The system uses secure BCrypt password hashing and JWT
+                            token-based authentication.</p>
+                    </div>
+                </div>
+                <div class="help-step">
+                    <span class="step-num">02</span>
+                    <div class="step-text">
+                        <h4>Navigate Using the Sidebar</h4>
+                        <p>Use the sidebar menu to access different sections of the system. The currently active section
+                            is highlighted. Your user role determines which features are available to you.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Making Reservations -->
+            <div class="card help-section" style="margin-bottom:24px;">
+                <div class="card-title">📋 Making Reservations</div>
+                <div class="help-step">
+                    <span class="step-num">01</span>
+                    <div class="step-text">
+                        <h4>Go to "Add Reservation"</h4>
+                        <p>Click on the "Add Reservation" menu item in the sidebar to open the booking form.</p>
+                    </div>
+                </div>
+                <div class="help-step">
+                    <span class="step-num">02</span>
+                    <div class="step-text">
+                        <h4>Enter Guest Information</h4>
+                        <p>Fill in the guest's name (required), contact number (required), address, and email. The
+                            contact number must be between 7-15 digits.</p>
+                    </div>
+                </div>
+                <div class="help-step">
+                    <span class="step-num">03</span>
+                    <div class="step-text">
+                        <h4>Select Dates & Room</h4>
+                        <p>Choose check-in and check-out dates. The system will automatically show available rooms. You
+                            can filter rooms by type (Standard, Deluxe, Suite). Click on a room card to select it.</p>
+                    </div>
+                </div>
+                <div class="help-step">
+                    <span class="step-num">04</span>
+                    <div class="step-text">
+                        <h4>Submit the Reservation</h4>
+                        <p>Click "Create Reservation" to confirm the booking. A unique reservation ID (format:
+                            RES-YYYYMMDD-XXXX) will be generated automatically.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Managing Reservations -->
+            <div class="card help-section" style="margin-bottom:24px;">
+                <div class="card-title">🔍 Managing Reservations</div>
+                <div class="help-step">
+                    <span class="step-num">01</span>
+                    <div class="step-text">
+                        <h4>View & Search</h4>
+                        <p>Go to "View Reservations" to see all bookings. Use the search bar to find reservations by ID,
+                            guest name, or contact number.</p>
+                    </div>
+                </div>
+                <div class="help-step">
+                    <span class="step-num">02</span>
+                    <div class="step-text">
+                        <h4>View Details</h4>
+                        <p>Click the "View" button on any reservation to see complete booking details in a popup.</p>
+                    </div>
+                </div>
+                <div class="help-step">
+                    <span class="step-num">03</span>
+                    <div class="step-text">
+                        <h4>Cancel a Reservation</h4>
+                        <p>Click the "Cancel" button to cancel a booking. Cancelled reservations cannot be undone. The
+                            room will become available for other guests.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Billing -->
+            <div class="card help-section" style="margin-bottom:24px;">
+                <div class="card-title">💰 Billing</div>
+                <div class="help-step">
+                    <span class="step-num">01</span>
+                    <div class="step-text">
+                        <h4>Generate a Bill</h4>
+                        <p>Go to "Calculate Bill" and enter the reservation ID. The system will calculate the total
+                            amount based on: Room Rate × Number of Nights + 15% Tax.</p>
+                    </div>
+                </div>
+                <div class="help-step">
+                    <span class="step-num">02</span>
+                    <div class="step-text">
+                        <h4>Print the Invoice</h4>
+                        <p>Click the "Print Bill" button to print a formatted invoice for the guest. The invoice
+                            includes all booking details and cost breakdown.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Room Types & Rates -->
+            <div class="card help-section" style="margin-bottom:24px;">
+                <div class="card-title">🏨 Room Types & Rates</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Room Type</th>
+                                <th>Rate per Night (LKR)</th>
+                                <th>View Options</th>
+                                <th>Room Numbers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="room-type-badge standard">Standard</span></td>
+                                <td>LKR 8,000.00</td>
+                                <td>Garden, Pool, Ocean</td>
+                                <td>101 - 106</td>
+                            </tr>
+                            <tr>
+                                <td><span class="room-type-badge deluxe">Deluxe</span></td>
+                                <td>LKR 14,000.00</td>
+                                <td>Garden, Pool, Ocean</td>
+                                <td>201 - 206</td>
+                            </tr>
+                            <tr>
+                                <td><span class="room-type-badge suite">Suite</span></td>
+                                <td>LKR 25,000.00</td>
+                                <td>Pool, Ocean</td>
+                                <td>301 - 304</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert alert-info" style="margin-top: 16px;">
+                    <span>ℹ️</span> All rates are subject to 15% tax (VAT + Tourism Tax).
+                </div>
+            </div>
+
+            <!-- User Roles -->
+            <div class="card help-section">
+                <div class="card-title">👥 User Roles</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Role</th>
+                                <th>Permissions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Staff / Receptionist</strong></td>
+                                <td>Add, view, search, and cancel reservations. Generate and print bills. View reports
+                                    and help section.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Manager</strong></td>
+                                <td>View reports, billing summaries, and occupancy statistics. Cannot modify reservation
+                                    data directly (read-only for data integrity).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+
+</html>

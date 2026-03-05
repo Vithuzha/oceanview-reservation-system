@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Reservation | Ocean View Resort</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body data-page="add-reservation">
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <span class="icon">🏖️</span>
+                <h2>Ocean View Resort</h2>
+                <p>Reservation System</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/pages/dashboard.html" class="nav-item" data-page="dashboard"><span class="nav-icon">📊</span>
+                    Dashboard</a>
+                <a href="/pages/add-reservation.html" class="nav-item" data-page="add-reservation"><span
+                        class="nav-icon">➕</span> Add Reservation</a>
+                <a href="/pages/view-reservation.html" class="nav-item" data-page="view-reservation"><span
+                        class="nav-icon">🔍</span> View Reservations</a>
+                <a href="/pages/billing.html" class="nav-item" data-page="billing"><span class="nav-icon">💰</span>
+                    Calculate Bill</a>
+                <a href="/pages/reports.html" class="nav-item" data-page="reports"><span class="nav-icon">📈</span>
+                    Reports</a>
+                <a href="/pages/help.html" class="nav-item" data-page="help"><span class="nav-icon">❓</span> Help</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">S</div>
+                    <div class="user-details">
+                        <div class="name" id="userName">Staff</div>
+                        <div class="role" id="userRole">STAFF</div>
+                    </div>
+                </div>
+                <a class="nav-item" onclick="logout()" style="cursor:pointer;"><span class="nav-icon">🚪</span>
+                    Logout</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Add New Reservation</h1>
+                <p>Register a new guest and create a room booking</p>
+            </div>
+
+            <form id="reservationForm">
+                <!-- Guest Information -->
+                <div class="card" style="margin-bottom:24px;">
+                    <div class="card-title">👤 Guest Information</div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guestName">Guest Name *</label>
+                            <input type="text" id="guestName" class="form-control" placeholder="Enter guest full name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactNumber">Contact Number *</label>
+                            <input type="tel" id="contactNumber" class="form-control"
+                                placeholder="e.g., +94 77 123 4567" required pattern="^[0-9+\-\s]{7,15}$">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guestAddress">Address</label>
+                        <input type="text" id="guestAddress" class="form-control" placeholder="Enter guest address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control"
+                            placeholder="Enter email address (optional)">
+                    </div>
+                </div>
+
+                <!-- Booking Details -->
+                <div class="card" style="margin-bottom:24px;">
+                    <div class="card-title">📅 Booking Details</div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkInDate">Check-In Date *</label>
+                            <input type="date" id="checkInDate" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkOutDate">Check-Out Date *</label>
+                            <input type="date" id="checkOutDate" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="roomTypeFilter">Filter by Room Type</label>
+                        <select id="roomTypeFilter" class="form-control">
+                            <option value="">All Room Types</option>
+                            <option value="STANDARD">Standard (LKR 8,000/night)</option>
+                            <option value="DELUXE">Deluxe (LKR 14,000/night)</option>
+                            <option value="SUITE">Suite (LKR 25,000/night)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Room Selection -->
+                <div class="card" style="margin-bottom:24px;">
+                    <div class="card-title">🏨 Select Room</div>
+                    <p style="color:var(--text-secondary); font-size:13px; margin-bottom:16px;">
+                        Select check-in and check-out dates above to see available rooms
+                    </p>
+                    <div id="roomsGrid" class="rooms-grid">
+                        <div class="empty-state">
+                            <div class="icon">📅</div>
+                            <h3>Select dates first</h3>
+                            <p>Choose your check-in and check-out dates to view available rooms.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div style="display:flex; gap:12px; justify-content:flex-end;">
+                    <a href="/pages/dashboard.html" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">✓ Create Reservation</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
