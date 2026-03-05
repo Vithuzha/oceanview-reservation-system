@@ -28,3 +28,28 @@ The system follows a layered architecture:
 - Entity Model
 
 ## Project Structure
+src/main/java/com.oceanview.resort
+├── controller
+├── service
+├── repository
+├── model
+├── config
+
+ How to Run the Project
+
+1. Clone the repository
+git clone https://github.com/Vithuzha/oceanview-reservation-system.git
+
+2. Open the project in IntelliJ IDEA
+
+3. Run the application
+OceanViewApplication.java
+
+4. Access the API
+
+http://localhost:8080
+
+## Author
+Vithuzha Vimalachandran  
+Advanced Programming – ICBT
+
